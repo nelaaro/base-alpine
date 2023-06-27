@@ -3,6 +3,11 @@ A simple but powerful base image, based on Alpine Linux
 
 ## Getting started
 
+    - https://github.com/ansible/vscode-ansible/wiki/macos
+    - 
+    podman machine init --cpus=4 --memory=4096 -v $HOME:$HOME -v /private/tmp:/private/tmp -v /var/folders/:/var/folders/
+
+
     ❯ podman machine start
     Starting machine "podman-machine-default"
     Waiting for VM ...
@@ -34,13 +39,27 @@ A simple but powerful base image, based on Alpine Linux
 ### vpn
 
     root@688888ef3b21 /vpn [1]# openvpn --config ./conf/ab14-bo1-continer.ovpn --verb 5
+
     
+    aaron@e24b768b08b5 ~> cd /etc/openvpn/
+    aaron@e24b768b08b5 /e/openvpn [1]> sudo openvpn --config ./ab14-bo1.ovpn --verb 5
+
+    
+
+## working env and tools
+
+- https://webinstall.dev/webi/
 ## S6
 
 ### Services
 
 - https://skarnet.org/software/s6-rc/overview.html
 - https://skarnet.org/software/s6-rc/s6-rc-compile.html#source
+
+#### ubuntu
+
+- https://faun.pub/the-top-3-most-important-steps-to-running-supervisord-on-docker-ubuntu-18-04-9c414338824e
+
 
 ## Further reading 
 - https://wiki.gentoo.org/wiki/S6
@@ -55,6 +74,12 @@ Server Version: version.Info{Major:"1", Minor:"19", GitVersion:"v1.19.15", GitCo
 
 ## Troubleshooting
 
+### ToDo 
+
+fix dns 
+
+- https://hub.docker.com/r/strm/dnsmasq/
+- https://computingforgeeks.com/run-and-use-dnsmasq-in-docker-container/
 
 ### 
 

@@ -15,4 +15,5 @@ services:
      - /Users/aaron/project/logius/vpn:/vpn
      - /Users/aaron/project/logius/src:/src
      - /Users/aaron/:/mnt/aaron
+     
     working_dir: /
