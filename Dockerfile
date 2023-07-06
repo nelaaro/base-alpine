@@ -3,7 +3,8 @@ LABEL maintainer="Aaron Nel nelaaro@gmail.com"
 #ARG install='fish fzf-fish-plugin fisher curl openssh-server openvpn git neovim'
 ARG install="ca-certificates apt-transport-https gpg fish curl openssh-server openvpn git neovim\
      jq curl wget make gcc build-essential supervisor tmux fzf sudo p7zip-full nmap ncat hping3 \
-     inetutils-ping mtr-tiny skopeo"
+     inetutils-ping mtr-tiny skopeo podman podman-docker ssh sshpass telnet "
+     # fd-find ripgrep
 ARG install2="fzf-fish-plugin yq kubectx fisher mvn"
 ARG container-user="aaron"
 #RUN echo $install
@@ -56,11 +57,11 @@ RUN (cd $HOME/Downloads && curl -N  --location --remote-header-name --remote-nam
 #     && /usr/bin/fish -c "fisher install evanlucas/fish-kubectl-completions"
 
 RUN whoami
-ADD --chown=aaron:aaron rootfs/home/user/.kube /home/aaron/.kube
+ADD --chown=aaron:aaron rootfs/home/user/* /home/aaron/.kube
 
 # Init
 # ENTRYPOINT [ "/init" ]
 #ENTRYPOINT [ "/bin/sh" ]
 USER root
 # https://stackoverflow.com/a/40199614/619760
-CMD /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
+CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf

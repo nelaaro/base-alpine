@@ -17,3 +17,9 @@ services:
      - /Users/aaron/:/mnt/aaron
      
     working_dir: /
+    ports:
+      - target: 22
+        host_ip: 127.0.0.1
+        published: 2022
+        protocol: tcp
+        mode: host
