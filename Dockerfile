@@ -64,4 +64,5 @@ ADD --chown=aaron:aaron rootfs/home/user/* /home/aaron/.kube
 #ENTRYPOINT [ "/bin/sh" ]
 USER root
 # https://stackoverflow.com/a/40199614/619760
-CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+#CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+CMD /usr/bin/supervisord -c /etc/supervisor/supervisord_docker.conf

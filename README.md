@@ -60,6 +60,11 @@ A simple but powerful base image, based on Alpine Linux
 
 - https://faun.pub/the-top-3-most-important-steps-to-running-supervisord-on-docker-ubuntu-18-04-9c414338824e
 
+### SSL / ca-certificates / certs 
+
+Getting certs working inside the container
+
+- https://github.com/containers/podman/blob/main/docs/tutorials/podman-install-certificate-authority.md
 
 ## Further reading 
 - https://wiki.gentoo.org/wiki/S6

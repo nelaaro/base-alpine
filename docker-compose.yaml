@@ -17,6 +17,7 @@ services:
      - /Users/aaron/:/mnt/aaron
      
     working_dir: /
+    # https://docs.docker.com/compose/compose-file/compose-file-v3/#ports
     ports:
       - target: 22
         host_ip: 127.0.0.1
