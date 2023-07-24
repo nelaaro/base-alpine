@@ -1,0 +1,27 @@
+version: '3'
+# name: cap-vpn
+services:
+  cap-vpn-container:
+    platform: linux/arm64
+
+    privileged: true
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file:
+      - ./env
+    volumes:
+    #  # - ./application:/var/www/html
+    #  - ~/project/logius/src:./src
+     - /Users/aaron/project/logius/vpn:/vpn
+     - /Users/aaron/project/logius/src:/src
+     - /Users/aaron/:/mnt/aaron
+     
+    working_dir: /
+    # https://docs.docker.com/compose/compose-file/compose-file-v3/#ports
+    ports:
+      - target: 22
+        host_ip: 127.0.0.1
+        published: 2022
+        protocol: tcp
+        mode: host

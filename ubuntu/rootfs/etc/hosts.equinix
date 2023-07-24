@@ -1,0 +1,113 @@
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost
+# Added by Docker Desktop
+# To allow the same kube context to work on the host and the container:
+127.0.0.1 kubernetes.docker.internal
+# End of section
+#
+#Dev
+
+127.0.0.1 ddmdatabase
+
+# login servers / jump boxes
+10.127.44.105 ab5-bo1-os1
+10.127.44.106 ab5-bo1-os2
+
+#VPN
+#ab5-
+144.43.241.129 ab5-bo1-efw
+144.43.242.241 ab14-bo1-efw
+
+#ab5
+10.127.44.132 ab5-bo1-bs1 ab5-bo1-bs1.bh.ab5-bo1.easi
+10.127.44.133 ab5-bo1-bs2 ab5-bo1-bs2.bh.ab5-bo1.easi
+10.127.44.135 ab5-bo1-bs3 ab5-bo1-bs3.bh.ab5-bo1.easi
+10.127.44.136 ab5-bo1-bs4 ab5-bo1-bs4.bh.ab5-bo1.easi
+
+#dgd-ost
+#
+10.127.149.136 dgd-ost-ddmgitlab1
+10.127.149.141 dgd-ost-ddmnexus1
+10.127.149.143 dgd-ost-ddmsonar1
+
+
+
+## Other stuff
+87.215.64.234 lap.gbav.idm.diginetwerk.net
+
+### ddm-acp cluster ###
+# tooling
+10.127.12.132 ddm-acp.k8s.easi api.ddm-acp.k8s.easi portal.ddm-acp.k8s.easi sso.ddm-acp.k8s.easi harbor.ddm-acp.k8s.easi dashboard.ddm-acp.k8s.easi notary.ddm-acp.k8s.easi prometheus.ddm-acp.k8s.easi nexus.ddm-acp.k8s.easi sonar.ddm-acp.k8s.easi grafana.ddm-acp.k8s.easi gitlab.ddm-acp.k8s.easi
+
+# ddm-acc1.ddm-acp
+10.127.12.132 ddm-acc1.ddm-acp.k8s.easi consul-ddm-acc1.ddm-acp.k8s.easi acc1.machtigen.digid.nl dv.acc1.machtigen.digid.nl ob.acc1.machtigen.digid.nl activemq-ddm-acc1.ddm-acp.k8s.easi
+# ddm-acc2.ddm-acp
+10.127.12.132 ddm-acc2.ddm-acp.k8s.easi consul-ddm-acc2.ddm-acp.k8s.easi acc2.machtigen.digid.nl dv.acc2.machtigen.digid.nl ob.acc2.machtigen.digid.nl activemq-ddm-acc2.ddm-acp.k8s.easi
+# ddm-acc4.ddm-acp
+#10.127.12.132 ddm-acc4.ddm-acp.k8s.easi consul-ddm-acc4.ddm-acp.k8s.easi acc4.machtigen.digid.nl dv.acc4.machtigen.digid.nl ob.acc4.machtigen.digid.nl activemq-ddm-acc4.ddm-acp.k8s.easi
+# ddm-acc4 / aaron acc4.machtigen.digid.nl
+# +++ export environment_url=aaron.machtigen.digid.nl
+# +++ environment_url=aaron.machtigen.digid.nl
+10.127.12.132 aaron.ddm-acp.k8s.easi consul-ddm-aaron.ddm-acp.k8s.easi aaron.machtigen.digid.nl dv.aaron.machtigen.digid.nl ob.aaron.machtigen.digid.nl activemq-ddm-aaron.ddm-acp.k8s.easi
+# ddm-ko.ddm-acp
+10.127.12.132 ddm-ko.ddm-acp.k8s.easi consul-ddm-ko.ddm-acp.k8s.easi ko.machtigen.digid.nl dv.ko.machtigen.digid.nl ob.ko.machtigen.digid.nl activemq-ddm-ko.ddm-acp.k8s.easi
+# ddm-otcp
+10.127.7.36  ddm-otcp.k8s.easi api.ddm-otcp.k8s.easi portal.ddm-otcp.k8s.easi sso.ddm-otcp.k8s.easi harbor.ddm-otcp.k8s.easi dashboard.ddm-otcp.k8s.easi balie.ddm-otcp.k8s.easi registry.ddm-otcp.k8s.easi 
+
+#portal.ddm-m3.k8s.easi portal.ddm-m4.k8s.easi sso.ddm-otcp.k8s.easi sso.ddm-m3.k8s.easi sso.ddm-m4.k8s.easi sso.ddm-m1.k8s.easi sso.ddm-m2.k8s.easi
+
+
+# DDM-D cluster 
+# Cluster access entries 
+10.127.92.132 ddm-d.k8s.easi api.ddm-d.k8s.easi portal.ddm-d.k8s.easi sso.ddm-d.k8s.easi harbor.ddm-d.k8s.easi dashboard.ddm-d.k8s.easi notary.ddm-d.k8s.easi prometheus.ddm-d.k8s.easi nexus.ddm-d.k8s.easi sonar.ddm-d.k8s.easi grafana.ddm-d.k8s.easi gitlab.ddm-d.k8s.easi 
+# ACC3 entries 
+10.127.92.132 ddm-acc3.ddm-d.k8s.easi consul-ddm-acc3.ddm-d.k8s.easi acc3.machtigen.digid.nl dv.acc3.machtigen.digid.nl ob.acc3.machtigen.digid.nl activemq-ddm-acc3.ddm-d.k8s.easi 
+# KA entries 
+10.127.92.132 ddm-ka.ddm-d.k8s.easi consul-ddm-ka.ddm-d.k8s.easi ka.machtigen.digid.nl dv.ka.machtigen.digid.nl ob.ka.machtigen.digid.nl activemq-ddm-ka.ddm-d.k8s.easi
+# m1 / m2
+10.127.92.132 portal.ddm-d.k8s.easi sso.ddm-d.k8s.easi harbor.ddm-d.k8s.easi api.ddm-d.k8s.easi notary.ddm-d.k8s.easi gitlab.ddm-d.k8s.easi vault-dev.ddm-d.k8s.easi prometheus.ddm-d.k8s.easi consul-dev.ddm-d.k8s.easi dashboard.ddm-d.k8s.easi consul-test-blue.ddm-d.k8s.easi consul-test-green.ddm-d.k8s.easi active.bluegreen.ddm-d.k8s.easi beta.bluegreen.ddm-d.k8s.easi active.bluegreen.ddm-bgtest.ddm-d.k8s.easi beta.bluegreen.ddm-bgtest.ddm-d.k8s.easi active.bluegreen.acc1-bg.ddm-d.k8s.easi active.bluegreen.ddm-bg.ddm-d.k8s.easi beta.bluegreen.ddm-bg.ddm-d.k8s.easi active-consul.bluegreen.ddm-bg.ddm-d.k8s.easi beta-consul.bluegreen.ddm-bg.ddm-d.k8s.easi kibana-beheer.ddm-d.k8s.easi kibana.ddm-d.k8s.easi  
+10.127.92.132 sso.ddm-m1.k8s.easi portal.ddm-m1.k8s.easi 
+10.127.92.132 sso.ddm-m2.k8s.easi portal.ddm-m2.k8s.easi 
+# ddm-m2 ddm-m2.k8s.easi
+10.233.7.126 ddm-m2.k8s.easi
+10.233.7.126 beta-consul.bluegreen.ddm-prod.ddm-m2.k8s.easi beta.bluegreen.ddm-prod.ddm-m2.k8s.easi
+
+10.127.44.107 sso.ddm-m3.k8s.easi portal.ddm-m3.k8s.easi 
+10.127.44.107 sso.ddm-m4.k8s.easi portal.ddm-m4.k8s.easi 
+
+
+# old clusters before new eqap migration
+#
+# git
+144.43.242.196 gitlab.machtigen.digid.nl
+
+# 2023-03-##
+# ACC4 Asked Equinix to cutover on 30-03-2023
+# ACC2 Asked Equinix to cutover on 30-03-2023
+# ACC1 Will be cutover on 30-03-2023
+# KO Will be cutover on 31-03-2023
+# ddm-m2 ddm-m2.k8s.easi
+#10.233.7.126 ddm-m2.k8s.easi
+#10.233.7.126 beta-consul.bluegreen.ddm-prod.ddm-m2.k8s.easi beta.bluegreen.ddm-prod.ddm-m2.k8s.easi
+
+#10.127.172.228 ab14-bo1-bs1 ab14-bo1-bs1.bh.ab14-bo1.easi # DDM-OTCP cluster
+#10.127.12.132 ddm-acp.k8s.easi  api.ddm-acp.k8s.easi  portal.ddm-acp.k8s.easi  sso.ddm-acp.k8s.easi  harbor.ddm-acp.k8s.easi dashboard.ddm-acp.k8s.easi # Some DDM-D ingress entries
+#10.127.92.132 portal.ddm-d.k8s.easi sso.ddm-d.k8s.easi harbor.ddm-d.k8s.easi api.ddm-d.k8s.easi notary.ddm-d.k8s.easi prometheus.ddm-d.k8s.easi dashboard.ddm-d.k8s.easi kibana.ddm-d.k8s.easi traefik.ddm-d.k8s.easi nexus.ddm-d.k8s.easi sonar.ddm-d.k8s.easi grafana.ddm-d.k8s.easi
+#10.127.92.132 gitlab.ddm-d.k8s.easi dev.ddm-d.k8s.easi ddm-acc4.ddm-d.k8s.easi ddm-cicd.ddm-d.k8s.easi active.bluegreen.ddm-d.k8s.easi beta.bluegreen.ddm-d.k8s.easi active.bluegreen.ddm-bgtest.ddm-d.k8s.easi beta.bluegreen.ddm-bgtest.ddm-d.k8s.easi active.bluegreen.acc1-bg.ddm-d.k8s.easi beta.bluegreen.acc1-bg.ddm-d.k8s.easi active.bluegreen.ddm-bg.ddm-d.k8s.easi beta.bluegreen.ddm-bg.ddm-d.k8s.easi active-consul.bluegreen.ddm-bg.ddm-d.k8s.easi beta-consul.bluegreen.ddm-bg.ddm-d.k8s.easi poc-autoscaling.dev.ddm-d.k8s.easi ddm-acc1.ddm-d.k8s.easi kibana-ddm-acc4.ddm-d.k8s.easi ob.acc4.machtigen.digid.nl dv.acc4.machtigen.digid.nl nginxtest.ddm-d.k8s.easi kibana-beheer.ddm-d.k8s.easi kibana-ddm-acc4.ddm-d.k8s.easi
+#10.127.92.132 vault-acc1.ddm-d.k8s.easi consul-acc1.ddm-d.k8s.easi consul-acc4.ddm-d.k8s.easi consul-ko.ddm-d.k8s.easi consul-ka.ddm-d.k8s.easi consul-acc5.ddm-d.k8s.easi consul-test-blue.ddm-d.k8s.easi consul-test-green.ddm-d.k8s.easi consul-ddm-acc4.ddm-d.k8s.easi consul-acc1.ddm-d.k8s.easi consul-ddm-acc1.ddm-d.k8s.easi consul-ddm-acc1.ddm-d.k8s.easi consul-ddm-acc2.ddm-d.k8s.easi consul-ddm-acc3.ddm-d.k8s.easi consul-ddm-acc4.ddm-d.k8s.easi consul-ddm-acc5.ddm-d.k8s.easi consul-ddm-ko.ddm-d.k8s.easi consul-ddm-ka.ddm-d.k8s.easi
+#10.127.92.132 vault-dev.ddm-d.k8s.easi consul-dev.ddm-d.k8s.easi consul-dev-a1.ddm-d.k8s.easi vault-dev-a1.ddm-d.k8s.easi consul-dev.ddm-d.k8s.easi vault-dev.ddm-d.k8s.easi vault-nginx-dev.ddm-d.k8s.easi 
+
+
+# Equinix K8s platform
+#10.127.92.132 portal.ddm-d.k8s.easi sso.ddm-d.k8s.easi harbor.ddm-d.k8s.easi api.ddm-d.k8s.easi notary.ddm-d.k8s.easi gitlab.ddm-d.k8s.easi vault-dev.ddm-d.k8s.easi dev.ddm-d.k8s.easi prometheus.ddm-d.k8s.easi consul-dev.ddm-d.k8s.easi consul-dev-a1.ddm-d.k8s.easi vault-dev-a1.ddm-d.k8s.easi vault-acc1.ddm-d.k8s.easi consul-acc1.ddm-d.k8s.easi dashboard.ddm-d.k8s.easi ddm-acc4.ddm-d.k8s.easi consul-acc4.ddm-d.k8s.easi consul-dev.ddm-d.k8s.easi vault-dev.ddm-d.k8s.easi consul-ko.ddm-d.k8s.easi consul-ka.ddm-d.k8s.easi kibana.ddm-d.k8s.easi consul-acc5.ddm-d.k8s.easi traefik.ddm-d.k8s.easi vault-nginx-dev.ddm-d.k8s.easi ddm-cicd.ddm-d.k8s.easi nexus.ddm-d.k8s.easi sonar.ddm-d.k8s.easi grafana.ddm-d.k8s.easi consul-test-blue.ddm-d.k8s.easi consul-test-green.ddm-d.k8s.easi active.bluegreen.ddm-d.k8s.easi beta.bluegreen.ddm-d.k8s.easi active.bluegreen.ddm-bgtest.ddm-d.k8s.easi beta.bluegreen.ddm-bgtest.ddm-d.k8s.easi active.bluegreen.acc1-bg.ddm-d.k8s.easi beta.bluegreen.acc1-bg.ddm-d.k8s.easi active.bluegreen.ddm-bg.ddm-d.k8s.easi beta.bluegreen.ddm-bg.ddm-d.k8s.easi active-consul.bluegreen.ddm-bg.ddm-d.k8s.easi beta-consul.bluegreen.ddm-bg.ddm-d.k8s.easi consul-ddm-acc4.ddm-d.k8s.easi consul-acc1.ddm-d.k8s.easi consul-ddm-acc1.ddm-d.k8s.easi consul-ddm-acc1.ddm-d.k8s.easi consul-ddm-acc2.ddm-d.k8s.easi consul-ddm-acc3.ddm-d.k8s.easi consul-ddm-acc4.ddm-d.k8s.easi consul-ddm-acc5.ddm-d.k8s.easi consul-ddm-ko.ddm-d.k8s.easi consul-ddm-ka.ddm-d.k8s.easi poc-autoscaling.dev.ddm-d.k8s.easi consul-ddm-acc3.ddm-d.k8s.easi ddm-acc2.ddm-d.k8s.easi ddm-acc2.machtigen.digid.nl kibana-beheer.ddm-d.k8s.easi kibana.ddm-d.k8s.easi activemq-ddm-ka.ddm-d.k8s.easi portal.ddm-m1.k8s.easi portal.ddm-m2.k8s.easi portal.ddm-otcp.k8s.easi portal.ddm-m3.k8s.easi portal.ddm-m4.k8s.easi sso.ddm-otcp.k8s.easi sso.ddm-m3.k8s.easi sso.ddm-m4.k8s.easi sso.ddm-m1.k8s.easi sso.ddm-m2.k8s.easi
+# last working VVVV  
+# 10.127.92.132 portal.ddm-d.k8s.easi sso.ddm-d.k8s.easi harbor.ddm-d.k8s.easi api.ddm-d.k8s.easi notary.ddm-d.k8s.easi gitlab.ddm-d.k8s.easi vault-dev.ddm-d.k8s.easi dev.ddm-d.k8s.easi prometheus.ddm-d.k8s.easi consul-dev.ddm-d.k8s.easi consul-dev-a1.ddm-d.k8s.easi vault-dev-a1.ddm-d.k8s.easi vault-acc1.ddm-d.k8s.easi consul-acc1.ddm-d.k8s.easi dashboard.ddm-d.k8s.easi ddm-acc4.ddm-d.k8s.easi consul-acc4.ddm-d.k8s.easi consul-dev.ddm-d.k8s.easi vault-dev.ddm-d.k8s.easi consul-ko.ddm-d.k8s.easi consul-ka.ddm-d.k8s.easi kibana.ddm-d.k8s.easi consul-acc5.ddm-d.k8s.easi traefik.ddm-d.k8s.easi vault-nginx-dev.ddm-d.k8s.easi ddm-cicd.ddm-d.k8s.easi nexus.ddm-d.k8s.easi sonar.ddm-d.k8s.easi grafana.ddm-d.k8s.easi consul-test-blue.ddm-d.k8s.easi consul-test-green.ddm-d.k8s.easi active.bluegreen.ddm-d.k8s.easi beta.bluegreen.ddm-d.k8s.easi active.bluegreen.ddm-bgtest.ddm-d.k8s.easi beta.bluegreen.ddm-bgtest.ddm-d.k8s.easi active.bluegreen.acc1-bg.ddm-d.k8s.easi beta.bluegreen.acc1-bg.ddm-d.k8s.easi active.bluegreen.ddm-bg.ddm-d.k8s.easi beta.bluegreen.ddm-bg.ddm-d.k8s.easi active-consul.bluegreen.ddm-bg.ddm-d.k8s.easi beta-consul.bluegreen.ddm-bg.ddm-d.k8s.easi consul-ddm-acc4.ddm-d.k8s.easi consul-acc1.ddm-d.k8s.easi consul-ddm-acc1.ddm-d.k8s.easi consul-ddm-acc1.ddm-d.k8s.easi consul-ddm-acc2.ddm-d.k8s.easi consul-ddm-acc3.ddm-d.k8s.easi consul-ddm-acc4.ddm-d.k8s.easi consul-ddm-acc5.ddm-d.k8s.easi consul-ddm-ko.ddm-d.k8s.easi consul-ddm-ka.ddm-d.k8s.easi poc-autoscaling.dev.ddm-d.k8s.easi consul-ddm-acc3.ddm-d.k8s.easi ddm-acc2.ddm-d.k8s.easi ddm-acc2.machtigen.digid.nl kibana-beheer.ddm-d.k8s.easi kibana.ddm-d.k8s.easi activemq-ddm-ka.ddm-d.k8s.easi acc4.machtigen.digid.nl gitlab.machtigen.digid.nl
+
+
