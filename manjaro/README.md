@@ -3,7 +3,6 @@
 https://github.com/manjaro/manjaro-docker
 https://hub.docker.com/r/manjarolinux/build
 
-
 ## working env and tools
 
 - https://webinstall.dev/webi/
@@ -69,42 +68,3 @@ fix dns
 
 - https://www.redhat.com/sysadmin/rootless-podman
 
-#### podman debug
-
-podman --log-level debug run --systemd=true --env systemd.log_level=debug -it localhost/base-manjaro_cap-vpn-container:latest fish
-
-
-#### podman machine 
-
-[aaron@97405ef5a880 ssh]$ ssh core@host.containers.internal -p 50058 -i /mnt/aaron/.ssh/podman-machine-default
-Fedora CoreOS 38.20230709.2.0
-Tracker: https://github.com/coreos/fedora-coreos-tracker
-Discuss: https://discussion.fedoraproject.org/tag/coreos
-
-Last login: Mon Jul 24 16:02:48 2023 from 192.168.127.1
-[core@localhost ~]$
-
-
-[aaron@97405ef5a880 ssh]$ podman-remote ps
-CONTAINER ID  IMAGE                                       COMMAND           CREATED         STATUS         PORTS                   NAMES
-97405ef5a880  localhost/manjaro_cap-vpn-container:latest  --log-level=info  23 minutes ago  Up 23 minutes  127.0.0.1:2022->22/tcp  manjaro_cap-vpn-container_1
-[aaron@97405ef5a880 ssh]$ cat ~/.config/containers/containers.conf
-[containers]
-
-[engine]
-  active_service = "podman-machine-default-root"
-  [engine.service_destinations]
-    [engine.service_destinations.podman-machine-default]
-      uri = "ssh://core@host.containers.internal:50058/run/user/501/podman/podman.sock"
-      identity = "/mnt/aaron/.ssh/podman-machine-default"
-    [engine.service_destinations.podman-machine-default-root]
-      uri = "ssh://root@host.containers.internal:50058/run/podman/podman.sock"
-      identity = "/mnt/aaron/.ssh/podman-machine-default"
-
-[machine]
-
-[network]
-
-[secrets]
-
-[configmaps]

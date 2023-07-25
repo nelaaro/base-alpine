@@ -13,7 +13,7 @@ services:
     volumes:
     #  # - ./application:/var/www/html
     #  - ~/project/logius/src:./src
-     - /Users/aaron/project/logius/vpn:/vpn
+    #  - /Users/aaron/project/logius/vpn:/vpn
      - /Users/aaron/project/logius/src:/src
      - /Users/aaron/:/mnt/aaron
      

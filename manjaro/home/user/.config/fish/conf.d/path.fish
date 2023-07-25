@@ -1,3 +1,4 @@
-# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# https://krew.sigs.k8s.io/docs/user-guide/setup/install/
+set -gx PATH $PATH $HOME/.krew/bin
 
-set -e PATH "${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+source ~/.config/envman/PATH.env

@@ -4,7 +4,7 @@ FROM manjarolinux/base AS manjaro-build
 LABEL maintainer="Aaron Nel nelaaro@gmail.com"
 #ARG install='fish fzf-fish-plugin fisher curl openssh-server openvpn git neovim'
 ARG install="base-devel ca-certificates curl fd fish fisher fzf gcc git gnu-netcat gnupg go helix helm inetutils jdk17-openjdk jq \
-            kubectl kubectx make man-db man-pages maven mtr neovim nmap openssh openvpn \
+            k9s kubectl kubectx make man-db man-pages maven mtr neovim nmap openssh openvpn \
             p7zip  podman podman-compose podman-docker ripgrep skopeo ssh-tools sudo supervisor \
             tmux wget yq \
 "
@@ -21,9 +21,14 @@ ADD rootfs /
 RUN pacman -Syy --noconfirm --needed \
     ${install}
 
+# set default start target to not be a ui desktop env
+# update ca trust store with easi-ca-chain
 RUN systemctl set-default multi-user.target \
-    && mandb
-
+    && mandb \
+    && curl --output-dir /etc/ca-certificates/trust-source/anchors/  -O http://pki.easi-ms.nl/easi-ca-chain.crt.pem \ 
+    && update-ca-trust extract \ 
+    && systemctl enable sshd.service \
+    && cat /etc/hosts.equinix >> /etc/hosts
 #    && \
 #    rm -f /var/cache/pacman/pkg/*
 
@@ -33,9 +38,9 @@ RUN groupadd -g 20 staff \
 # RUN echo "aaron:itISeasy1!" | /usr/sbin/chpasswd
 
 # RUN chown aaron/home/aaron
-RUN systemctl get-default
-
-
+# RUN systemctl get-default \ 
+#     && cd /etc/ca-certificates/trust-source/anchors/ \
+#     && pwd \
 
 USER aaron
 RUN whoami
@@ -44,7 +49,6 @@ ADD --chown=aaron home/user/ /home/aaron/
 RUN ls -lart /home/aaron/.config/
 RUN ls -lart /home/aaron/.*
 
-
 RUN mkdir -p /tmp/build \
     && cd /tmp/build \
     && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm \
@@ -52,13 +56,12 @@ RUN mkdir -p /tmp/build \
     && yay -S krew-bin --noconfirm \
     && kubectl krew update \
     && kubectl krew list \ 
-    && kubectl krew install ctx krew ns
-
+    && kubectl krew install ctx krew ns oidc-login
 
 RUN whoami
-RUN pwd
-RUN ls -lart
-RUN ls -lart /home/aaron/.config/
+# RUN pwd
+# RUN ls -lart
+# RUN ls -lart /home/aaron/.config/
 
 RUN curl -sS https://webi.sh/ | sh
 # RUN curl -sS https://webi.sh/webi | /usr/bin/sh \
@@ -77,16 +80,10 @@ RUN curl -sS https://webi.sh/ | sh
 #     && ln -s /mnt/aaron/.ssh ~/.ssh
 #    && ln -s ~/mnt/aaron/.config/containers ~/.config/containers \
 
-# # ensure that `kubectl plugin` is able to find the installed apps
-# RUN mkdir -p ~/.local/ ~/Downloads ~/.local/opt ~/.local/bin/
-#     && (cd $HOME/Downloads && curl -N  --location --remote-header-name --remote-name https://github.com/int128/kubelogin/releases/download/v1.28.0/kubelogin_linux_arm64.zip) \
-#     && /usr/bin/7z e -o$HOME/.local/opt/kubelogin $HOME/Downloads/kubelogin_linux_arm64.zip \
-#     && chmod a+x ~/.local/opt/kubelogin/kubelogin \
-#     && ln -s ~/.local/opt/kubelogin/kubelogin ~/.local/bin/kubectl-oidc_login \
-#     && ln -s ~/.local/opt/kubelogin/kubelogin ~/.local/bin/ \
-#     && ln -s /mnt/aaron/.kube ~/.kube \
-#     && ln -s /mnt/aaron/.ssh ~/.ssh
-#    && ln -s ~/mnt/aaron/.config/containers ~/.config/containers \
+# move some configs files into locations that make them easier to use
+RUN mkdir -p ~/.local/ ~/Downloads ~/.local/opt ~/.local/bin/ \ 
+    && ln -s /mnt/aaron/.kube ~/.kube \
+    && ln -s /mnt/aaron/.ssh ~/.ssh
 
 
 # Fish and fisher
@@ -100,14 +97,8 @@ RUN whoami
 # ENTRYPOINT [ "/init" ]
 #ENTRYPOINT [ "/bin/sh" ]
 USER root
-# https://stackoverflow.com/a/40199614/619760
-#CMD /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
-# CMD /usr/bin/supervisord -c /etc/supervisor/supervisord_docker.conf
 
 # ENTRYPOINT ["/usr/bin/sh"]
-
-# CMD ["/usr/bin/sh"]
-
 
 # https://fedoraproject.org/wiki/How_to_debug_Systemd_problems
 
@@ -115,8 +106,6 @@ USER root
 # ENV container=podman
 
 # RUN mkdir /run/systemd/container
-
-
 
 ENTRYPOINT ["/sbin/init"]
 

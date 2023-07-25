@@ -3,57 +3,7 @@
 [![Docker Repository on Quay.io](https://quay.io/repository/justcontainers/base-alpine/status "Docker Repository on Quay.io")](https://quay.io/repository/justcontainers/base-alpine)
 A simple but powerful base image, based on Alpine Linux
 
-## Getting started
 
-    - https://github.com/ansible/vscode-ansible/wiki/macos
-    - 
-    podman machine init --cpus=4 --memory=4096 -v $HOME:$HOME -v /private/tmp:/private/tmp -v /var/folders/:/var/folders/
-
-
-    ❯ podman machine start
-    Starting machine "podman-machine-default"
-    Waiting for VM ...
-    Mounting volume... /Users/aaron:/Users/aaron
-    API forwarding listening on: /var/run/docker.sock
-    Docker API clients default to this address. You do not need to set DOCKER_HOST.
-
-    Machine "podman-machine-default" started successfully
-
-    podman ps; podman stop base-ubuntu_cap-vpn-container_1; podman rm base-ubuntu_cap-vpn-container_1; podman ps; podman-compose up --build -V -d
-
-### Podman Machine
-
- - https://docs.podman.io/en/latest/markdown/podman-machine-init.1.html
-
-    podman machine ssh
-    Connecting to vm podman-machine-default. To close connection, use `~.` or `exit`
-    Fedora CoreOS 38.20230514.2.0
-    Tracker: https://github.com/coreos/fedora-coreos-tracker
-    Discuss: https://discussion.fedoraproject.org/tag/coreos
-
-Check that volumes are mounted
-
-    Last login: Thu May 25 16:51:17 2023 from 192.168.127.1
-    [root@localhost ~]# pwd
-    /root
-    [root@localhost ~]# cd /Users/aaron/
-
-### Podman-compose 
-
-    ❯ cd ~/project/admin-tools/base-alpine/
-    podman-compose up
-
-### vpn
-
-    root@688888ef3b21 /vpn [1]# openvpn --config ./conf/ab14-bo1-continer.ovpn --verb 5
-
-    
-    aaron@e24b768b08b5 ~> cd /etc/openvpn/
-    aaron@e24b768b08b5 /e/openvpn [1]> sudo openvpn --config ./ab14-bo1.ovpn --verb 5
-
-## working env and tools
-
-- https://webinstall.dev/webi/
 ## S6
 
 ### Services
