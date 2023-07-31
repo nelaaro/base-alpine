@@ -1,0 +1,3 @@
+base/*/rootfs/etc/openvpn/certs
+base/*/home/user
+base/*/ign/*
