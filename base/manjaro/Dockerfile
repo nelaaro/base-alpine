@@ -3,8 +3,8 @@
 FROM manjarolinux/base AS manjaro-build
 LABEL maintainer="Aaron Nel nelaaro@gmail.com"
 #ARG install='fish fzf-fish-plugin fisher curl openssh-server openvpn git neovim'
-ARG install="base-devel ca-certificates curl fd fish fisher fzf gcc git gnu-netcat gnupg go helix helm inetutils jdk17-openjdk jq \
-            k9s kubectl kubectx make man-db man-pages maven mtr neovim nmap openssh openvpn \
+ARG install="base-devel bind-utils ca-certificates curl fd fish fisher fzf gcc git gnu-netcat gnupg go helix helm inetutils jdk17-openjdk jq \
+            k9s kubectl kubectx ldns make man-db man-pages maven mtr neovim nmap openssh openvpn \
             p7zip  podman podman-compose podman-docker ripgrep skopeo ssh-tools sudo supervisor \
             tmux wget yq \
 "
@@ -81,9 +81,12 @@ RUN curl -sS https://webi.sh/ | sh
 #    && ln -s ~/mnt/aaron/.config/containers ~/.config/containers \
 
 # move some configs files into locations that make them easier to use
+# why do this cause I am lazy and I only inted to run this images on my local machine
+
 RUN mkdir -p ~/.local/ ~/Downloads ~/.local/opt ~/.local/bin/ \ 
     && ln -s /mnt/aaron/.kube ~/.kube \
-    && ln -s /mnt/aaron/.ssh ~/.ssh
+    && ln -s /mnt/aaron/.ssh ~/.ssh \
+    && ln -fs /mnt/aaron/local/share/fish/fish_history ~/.local/share/fish/fish_history
 
 
 # Fish and fisher
